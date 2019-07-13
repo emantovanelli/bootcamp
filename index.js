@@ -19,10 +19,18 @@ const server = express();
 // });
 
 // Route param (localhost:3000/users/123)
-server.get("/users/:id", (req, res) => {
-  const { id } = req.params;
+// server.get("/users/:id", (req, res) => {
+//   const { id } = req.params;
 
-  return res.send({ message: `Buscando o usuário ${id}` });
+//   return res.send({ message: `Buscando o usuário ${id}` });
+// });
+
+const users = ["Edvaldo", "Maria", "Fernando"];
+
+server.get("/users/:index", (req, res) => {
+  const { index } = req.params;
+
+  return res.send(users[index]);
 });
 
 server.listen(3000);
